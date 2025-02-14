@@ -7,8 +7,8 @@ This is a **Next.js** blog application built as a test project. It fetches blog 
 ### 📌 Installation & Setup  
 1. Clone this repository:  
    ```sh
-   git clone <your-repo-url>
-   cd <your-repo-folder>
+   git clone https://github.com/luisclaudioc/luis-costantin-blog.git
+   cd luis-costantin-blog
    ```  
 2. Install dependencies:  
    ```sh
@@ -97,17 +97,13 @@ If you'd like to improve this project, follow these steps:
 ---
 
 ## 📌 Author & Contact  
-👨‍💻 **Your Name**  
-📧 **Your Email (Optional)**  
-🔗 **[Your Portfolio or GitHub Link]**  
+👨‍💻 **Luis Costantin**  
+📧 **luisclaudioc@hotmail.com**  
+🔗 **https://www.luiscostantin.com**  
 
 ---
 
 ## 🔗 Useful Links  
 - [Next.js Documentation](https://nextjs.org/docs)  
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)  
-
----
-
-✅ **Now Your README is Ready!** 🎉
 
