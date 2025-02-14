@@ -1,31 +1,113 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Application  
 
-# Getting Started
+This is a **Next.js** blog application built as a test project. It fetches blog posts from an API, uses dynamic routing, and includes features such as dark mode, a search bar, hashtag filtering, and a responsive design with **Tailwind CSS**.  
 
-First, run the development server:
+## 🚀 Getting Started  
 
-```bash
-npm run dev
-# or
-yarn dev
+### 📌 Installation & Setup  
+1. Clone this repository:  
+   ```sh
+   git clone <your-repo-url>
+   cd <your-repo-folder>
+   ```  
+2. Install dependencies:  
+   ```sh
+   npm install
+   ```  
+3. Run the development server:  
+   ```sh
+   npm run dev
+   ```  
+4. Open your browser and go to:  
+   - 📍 **Localhost:** `http://localhost:3000`  
+   - 📍 **Deployed on Vercel:** [Your Vercel Link]  
+
+---
+
+## 📌 Features & Implementation  
+
+### 1️⃣ Blog Posts (Fetched via `getStaticProps`)  
+- Posts are fetched from [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts).  
+- Static generation (`getStaticProps` & `getStaticPaths`) is used to improve performance.  
+- Each post has a **title, body, author ID, and hashtags**.  
+
+### 2️⃣ Dark Mode Toggle 🌙  
+- Implemented using **React state and Tailwind CSS**.  
+- Users can toggle between **light** and **dark mode** for better accessibility.  
+
+### 3️⃣ Search Functionality (Title-Based) 🔍  
+- A **search bar in the navbar** filters posts dynamically based on the title.  
+- **Debounced input** ensures smooth performance.  
+
+### 4️⃣ Hashtag Filtering #️⃣  
+- Hashtags are **generated dynamically** from the post title.  
+- Clicking on a hashtag filters posts containing that tag.  
+- **Clear Filter Button** resets the search.  
+
+### 5️⃣ Responsive Design 📱  
+- Uses **Tailwind CSS** for styling.  
+- Fully responsive on **mobile, tablet, and desktop**.  
+
+---
+
+## 📂 Project Structure  
 ```
-After the installation is complete, run `npm run dev` to start the Next development server, this will make the app available on port 3000, on localhost.
+/blog-app
+ ├── /components        # Reusable UI components (Navbar, Footer, PostCard, SearchBar, etc.)
+ ├── /pages             # Next.js pages (index.tsx, about.tsx, post/[id].tsx)
+ ├── /styles           # Global CSS and Tailwind configurations
+ ├── /utils            # Utility functions (Hashtag Generator)
+ ├── /public           # Static assets
+ ├── next.config.js    # Next.js configuration
+ ├── tailwind.config.js # Tailwind configuration
+ ├── tsconfig.json     # TypeScript configuration
+ ├── README.md         # Project documentation
+ └── package.json      # Project dependencies
+```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 📌 Deployment  
+This project is **deployed on Vercel**.  
+You can access the live version at: [Your Vercel Deployment Link]  
 
-# Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📌 Technologies Used  
+- **Next.js** (Pages Router)  
+- **TypeScript**  
+- **Tailwind CSS**  
+- **Vercel (Deployment)**  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📌 How to Contribute  
+If you'd like to improve this project, follow these steps:  
+1. Fork the repository.  
+2. Create a new branch:  
+   ```sh
+   git checkout -b feature-branch
+   ```  
+3. Make changes and commit:  
+   ```sh
+   git commit -m "Added new feature"
+   ```  
+4. Push to GitHub and create a Pull Request.  
 
-# Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Author & Contact  
+👨‍💻 **Your Name**  
+📧 **Your Email (Optional)**  
+🔗 **[Your Portfolio or GitHub Link]**  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## 🔗 Useful Links  
+- [Next.js Documentation](https://nextjs.org/docs)  
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)  
+
+---
+
+✅ **Now Your README is Ready!** 🎉
+
