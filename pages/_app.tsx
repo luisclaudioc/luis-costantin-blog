@@ -1,6 +1,19 @@
+import { AppProps } from "next/app";
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <main className="flex-grow">
+        <Component {...pageProps} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      </main>
+      <Footer />
+    </div>
+  );
 }
