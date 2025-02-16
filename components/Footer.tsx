@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="p-4 bg-gray-800 text-white text-center fixed bottom-0 w-full">
       <div className="flex justify-center items-center space-x-4">
-        <span className="text-blue-500 pr-8">Made by: Luis Costantin</span>
+        <span className="text-blue-500 pr-8">Luis Costantin</span>
         <a href="https://github.com/luisclaudioc" target="_blank" className="hover:underline">
           GitHub
         </a>

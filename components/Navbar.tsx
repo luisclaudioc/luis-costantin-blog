@@ -17,7 +17,7 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
     <nav className="p-4 bg-gray-800 text-white flex justify-between items-center">
       <div className="flex space-x-4">
         <Link href="/" className={`hover:underline ${isActive("/")}`}>
-          <span className="text-xl pl-8">Home</span>
+          <span className="text-xl pl-2">Home</span>
         </Link>
         <Link href="/about" className={`hover:underline ${isActive("/about")}`}>
           <span className="text-xl pl-2">About</span>
