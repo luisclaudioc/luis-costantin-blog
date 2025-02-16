@@ -17,7 +17,7 @@ export default function PostCard({
 }) {
   const hashtags = hashtagGenerator(post.title);
   return (
-    <div className="p-4 border rounded shadow">
+    <div className="p-4 border rounded shadow-lg">
       <h2 className="text-xl font-bold mb-2">
         <Link href={`/post/${post.id}`} className="text-blue-500 hover:underline">
           {capitalizeTitle(post.title)}

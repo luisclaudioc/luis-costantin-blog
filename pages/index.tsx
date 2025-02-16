@@ -35,7 +35,7 @@ export default function Home({ posts, searchQuery, setSearchQuery }: Props) {
   return (
     <div className="pb-16">
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4 text-center">Blog Posts</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center">Latest Blog Posts</h1>
 
         {(selectedTag || searchQuery) && (
           <div className="mb-4 text-center">
