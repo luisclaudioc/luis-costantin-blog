@@ -47,7 +47,7 @@ export const getStaticProps = (async ({ params }) => {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params?.id}`)
     const post = await res.json()
 
-    if (!post || !post.id) {
+    if (!post || !post.id || !post.title || !post.body || !post.userId) {
         return { notFound: true }; 
     }
 
