@@ -24,9 +24,11 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
         </Link>
       </div>
 
-      <div className="flex-grow flex justify-center">
+      {router.pathname === "/" && (
+      <div className="flex justify-center">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
+      )}
       
       <div className="flex- space-x-4 pr-4">
         <DarkModeToggle />

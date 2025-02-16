@@ -12,7 +12,7 @@ export default function DarkModeToggle() {
       document.documentElement.classList.add("dark");
       setDarkMode(true);
     }
-  }, []);
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
     if (darkMode) {

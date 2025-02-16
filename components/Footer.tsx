@@ -9,7 +9,7 @@ export default function Footer() {
         <a href="https://www.linkedin.com/in/luisclaudioc/" target="_blank" className="hover:underline">
           LinkedIn
         </a>
-        <a href="https://www.instagram.com/luisclaudioc/" target="_blank" className="hover:underline">
+        <a href="https://www.instagram.com/luisclaudioc/" target="_blank" className="hover:underline hidden md:block">
           Instagram
         </a>
       </div>
