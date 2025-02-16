@@ -13,6 +13,11 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps ) {
+
+    if (!post) {
+        return <p className="text-center text-red-500">Post not found</p>;
+    }
+
     return (
         <div className="container mx-auto p-6">
         <h1 className="text-3xl text-blue-500 font-bold mb-4">{capitalizeTitle(post.title)}</h1>
