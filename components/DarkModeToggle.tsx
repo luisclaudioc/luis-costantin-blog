@@ -4,15 +4,19 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check if theme is already stored in localStorage
+    return typeof window !== "undefined" && localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
-    const savedMode = localStorage.getItem("theme");
-    if (savedMode === "dark") {
+    // Apply the theme on initial load
+    if (darkMode) {
       document.documentElement.classList.add("dark");
-      setDarkMode(true);
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-  }, []);
+  }, [darkMode]); // Runs whenever darkMode changes
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
@@ -28,25 +32,25 @@ export default function DarkModeToggle() {
       onClick={toggleDarkMode}
       className="relative w-14 h-8 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 transition-all"
     >
+      {/* Moon icon */}
       <motion.span
         className="absolute right-1 text-gray-400"
-        initial={{ opacity: darkMode ? 0 : 1 }}
         animate={{ opacity: darkMode ? 0 : 1 }}
         transition={{ duration: 0.3 }}
       >
         🌙
       </motion.span>
 
+      {/* Toggle ball */}
       <motion.div
         className="w-6 h-6 bg-white dark:bg-gray-900 rounded-full shadow-md"
-        initial={{ x: darkMode ? 24 : 0 }}
         animate={{ x: darkMode ? 24 : 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
 
+      {/* Sun icon */}
       <motion.span
         className="absolute left-1"
-        initial={{ opacity: darkMode ? 1 : 0 }}
         animate={{ opacity: darkMode ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
