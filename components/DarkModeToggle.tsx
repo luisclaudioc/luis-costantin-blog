@@ -12,17 +12,15 @@ export default function DarkModeToggle() {
       document.documentElement.classList.add("dark");
       setDarkMode(true);
     }
-  }, [darkMode]);
+  }, []);
 
   const toggleDarkMode = () => {
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
-    setDarkMode(!darkMode);
+    setDarkMode((prev) => {
+      const newMode = !prev;
+      document.documentElement.classList.toggle("dark", newMode);
+      localStorage.setItem("theme", newMode ? "dark" : "light");
+      return newMode;
+    });
   };
 
   return (
