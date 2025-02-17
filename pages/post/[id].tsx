@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { capitalizeTitle } from "@/utils/capitalizeTitle";
 
@@ -19,12 +20,17 @@ export default function Post({ post }: PostProps ) {
     }
 
     return (
-        <div className="container mx-auto p-6">
-        <h1 className="text-3xl text-blue-500 font-bold mb-4">{capitalizeTitle(post.title)}</h1>
-        <p className="text-gray-600 mb-2">Post ID: {post.id}</p>
-        <p className="text-gray-600 mb-4">Author: {post.userId}</p>
-        <p className="text-lg">{post.body.charAt(0).toUpperCase() + post.body.slice(1)}</p>
-        </div>
+        <>
+            <Head>
+                <title>{`Post ${post.id} - CostantinBlog`}</title>
+            </Head>
+            <div className="container mx-auto p-6">
+            <h1 className="text-3xl text-blue-500 font-bold mb-4">{capitalizeTitle(post.title)}</h1>
+            <p className="text-gray-600 mb-2">Post ID: {post.id}</p>
+            <p className="text-gray-600 mb-4">Author: {post.userId}</p>
+            <p className="text-lg">{post.body.charAt(0).toUpperCase() + post.body.slice(1)}</p>
+            </div>
+        </>
     );
 }
 

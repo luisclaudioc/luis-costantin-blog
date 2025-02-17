@@ -1,61 +1,79 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react"
 
 export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(() => {
-    // Check if theme is already stored in localStorage
-    return typeof window !== "undefined" && localStorage.getItem("theme") === "dark";
-  });
+  const [darkMode, setDarkMode] = useState(false) // Default to false
 
+  // ✅ Ensure dark mode is set correctly on mount
   useEffect(() => {
-    // Apply the theme on initial load
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
+    const savedTheme = localStorage.getItem("theme")
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      setDarkMode(true)
+      document.documentElement.classList.add("dark")
     } else {
-      document.documentElement.classList.remove("dark");
+      setDarkMode(false)
+      document.documentElement.classList.remove("dark")
     }
-  }, [darkMode]); // Runs whenever darkMode changes
+  }, [])
+
+  // ✅ Update class when darkMode changes
+  useEffect(() => {
+    console.log("Dark mode:", darkMode) // Debugging log
+    if (darkMode) {
+      document.documentElement.classList.add("dark")
+      localStorage.setItem("theme", "dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+      localStorage.setItem("theme", "light")
+    }
+  }, [darkMode])
 
   const toggleDarkMode = () => {
-    setDarkMode((prev) => {
-      const newMode = !prev;
-      document.documentElement.classList.toggle("dark", newMode);
-      localStorage.setItem("theme", newMode ? "dark" : "light");
-      return newMode;
-    });
-  };
+    setDarkMode((prev) => !prev)
+  }
 
   return (
     <button
       onClick={toggleDarkMode}
-      className="relative w-14 h-8 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 transition-all"
+      className="relative w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors duration-300"
     >
-      {/* Moon icon */}
-      <motion.span
-        className="absolute right-1 text-gray-400"
-        animate={{ opacity: darkMode ? 0 : 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        🌙
-      </motion.span>
+      <span className="sr-only">Toggle dark mode</span>
+      <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+        
+        {/* Sun icon */}
+        <svg
+          className={`w-5 h-5 text-slate-600 dark:text-slate-400 ${darkMode ? "opacity-0" : "opacity-100"}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          />
+        </svg>
 
-      {/* Toggle ball */}
-      <motion.div
-        className="w-6 h-6 bg-white dark:bg-gray-900 rounded-full shadow-md"
-        animate={{ x: darkMode ? 24 : 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      />
+        {/* Moon icon */}
+        <svg
+          className={`absolute w-5 h-5 text-slate-600 dark:text-slate-400 ${darkMode ? "opacity-100" : "opacity-0"}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          />
+        </svg>
 
-      {/* Sun icon */}
-      <motion.span
-        className="absolute left-1"
-        animate={{ opacity: darkMode ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        ☀️
-      </motion.span>
+      </div>
     </button>
-  );
+  )
 }
