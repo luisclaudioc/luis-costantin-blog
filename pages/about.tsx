@@ -17,7 +17,7 @@ export default function About() {
           </div>
 
           <h1 className="text-4xl font-bold mb-2">Hey, I'm Luis!</h1>
-          <h3 className="text-lg text-gray-600 dark:text-gray-600">
+          <h3 className="text-lg text-slate-800 dark:text-slate-400">
             A web developer who loves crafting clean, functional, and creative digital experiences.
           </h3>
 
@@ -35,23 +35,22 @@ export default function About() {
               I would be happy to detail the technologies used in this project and my capabilities as a developer.
             </p>
 
-            {/* Contact Links */}
             <p className="mt-4 flex flex-wrap gap-2 justify-center">
               <a 
                 href="mailto:luisclaudioc@hotmail.com"
-                className="transform active:scale-95 transition-all duration-300 ease-in-out px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-full shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+                className="transform active:scale-95 transition-all duration-300 ease-in-out px-4 py-2 bg-gray-800 text-slate-900 hover:bg-gray-700 rounded-full shadow-md transition"
               >
                 📧
               </a>
               <a 
                 href="tel:+351938349977"
-                className="transform active:scale-95 transition-all duration-300 ease-in-out px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-full shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+                className="transform active:scale-95 transition-all duration-300 ease-in-out px-4 py-2 bg-gray-800 text-slate-900 hover:bg-gray-700 rounded-full shadow-md transition"
               >
                 📞
               </a>
               <a 
                 href="https://wa.me/351938349977"
-                className="transform active:scale-95 transition-all duration-300 ease-in-out px-4 py-2 bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 transition"
+                className="transform active:scale-95 transition-all duration-300 ease-in-out px-4 py-2 bg-green-500 rounded-full shadow-md hover:bg-green-600 transition"
               >
                 💬
               </a>

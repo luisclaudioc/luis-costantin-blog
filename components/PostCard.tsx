@@ -8,19 +8,18 @@ interface Post {
   body: string;
 }
 
-export default function PostCard({
-  post,
-  onTagClick,
-}: {
-  post: Post;
-  onTagClick: (tag: string) => void;
-}) {
+export default function PostCard({ post, onTagClick }: { post: Post; onTagClick: (tag: string) => void; }) {
+  
   const hashtags = hashtagGenerator(post.title);
   
   return (
     <div className="p-4 border rounded-[12px] shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
       <h2 className="text-xl font-bold mb-2">
-        <Link href={`/post/${post.id}`} className="text-blue-500 hover:text-blue-400">
+        <Link 
+          href={`/post/${post.id}`} 
+          className="text-blue-500 hover:text-blue-400"
+          onClick={() => sessionStorage.setItem("homeScroll", window.scrollY.toString())}
+        >
           {capitalizeTitle(post.title)}
         </Link>
       </h2>
@@ -28,11 +27,12 @@ export default function PostCard({
 
       <Link
         href={`/post/${post.id}`}
-        className="inline-flex items-center mt-2 text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+        className="group inline-flex items-center mt-2 text-blue-500 hover:text-blue-600 font-medium"
+        onClick={() => sessionStorage.setItem("homeScroll", window.scrollY.toString())}
       >
         Read More
         <svg
-          className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+          className="w-4 h-4 ml-1 group-hover:animate-bounce-horizontal transition-transform"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -43,11 +43,11 @@ export default function PostCard({
       </Link>
 
       <div className="mt-auto pt-4 flex flex-wrap gap-2">
-        {hashtags.map((tag) => (
+        {hashtags.map((tag, index) => (
           <button
-            key={tag}
+            key={tag + index}
             onClick={() => onTagClick(tag)}
-            className="text-sm px-3 py-1 rounded-full bg-blue-900 text-blue-700 dark:text-white dark:bg-blue-900/30 hover:bg-blue-300 dark:hover:bg-blue-900/50 transition-colors"
+            className="text-sm px-3 py-1 rounded-full bg-blue-200 text-slate-900 dark:text-slate-200 dark:bg-blue-900/40 hover:bg-blue-300 dark:hover:bg-blue-900/20"
           >
             {tag}
           </button>

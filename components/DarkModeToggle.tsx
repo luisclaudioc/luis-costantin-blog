@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 export default function DarkModeToggle() {
   const [darkMode, setDarkMode] = useState(false) // Default to false
 
-  // ✅ Ensure dark mode is set correctly on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme")
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -19,9 +18,7 @@ export default function DarkModeToggle() {
     }
   }, [])
 
-  // ✅ Update class when darkMode changes
   useEffect(() => {
-    console.log("Dark mode:", darkMode) // Debugging log
     if (darkMode) {
       document.documentElement.classList.add("dark")
       localStorage.setItem("theme", "dark")
@@ -45,7 +42,7 @@ export default function DarkModeToggle() {
         
         {/* Sun icon */}
         <svg
-          className={`w-5 h-5 text-slate-600 dark:text-slate-400 ${darkMode ? "opacity-0" : "opacity-100"}`}
+          className={`w-5 h-5 text-slate-400 ${darkMode ? "opacity-0" : "opacity-100"}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -60,7 +57,7 @@ export default function DarkModeToggle() {
 
         {/* Moon icon */}
         <svg
-          className={`absolute w-5 h-5 text-slate-600 dark:text-slate-400 ${darkMode ? "opacity-100" : "opacity-0"}`}
+          className={`absolute w-5 h-5 text-slate-400 ${darkMode ? "opacity-100" : "opacity-0"}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
