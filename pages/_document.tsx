@@ -10,7 +10,7 @@ export default function Document() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <body className="antialiased">
+      <body className="antialiased bc-background color-foreground">
         <Main />
         <NextScript />
       </body>
