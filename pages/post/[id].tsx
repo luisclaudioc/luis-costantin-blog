@@ -1,19 +1,37 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { capitalizeTitle } from "@/utils/capitalizeTitle";
+import { Post, PostProps } from "@/types/Post.types";
 
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-}
 
-interface PostProps {
-  post: Post;
-}
+// Get static paths
+export const getStaticPaths = (async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts: Post[] = await res.json();
+
+  const paths = posts.map((post) => ({
+    params: { id: post.id.toString() },
+  }));
+
+  return { paths, fallback: "blocking" };
+}) satisfies GetStaticPaths<{ id: string }>;
+
+
+// Get static rops
+export const getStaticProps = (async ({ params }) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${params?.id}`
+  );
+  const post = await res.json();
+
+  if (!post || !post.id || !post.title || !post.body || !post.userId) {
+    return { notFound: true };
+  }
+
+  return { props: { post } };
+}) satisfies GetStaticProps<{ post: Post }>;
+
 
 export default function Post({ post }: PostProps) {
   const router = useRouter();
@@ -59,27 +77,3 @@ export default function Post({ post }: PostProps) {
     </>
   );
 }
-
-export const getStaticPaths = (async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts: Post[] = await res.json();
-
-  const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
-  }));
-
-  return { paths, fallback: "blocking" };
-}) satisfies GetStaticPaths<{ id: string }>;
-
-export const getStaticProps = (async ({ params }) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params?.id}`
-  );
-  const post = await res.json();
-
-  if (!post || !post.id || !post.title || !post.body || !post.userId) {
-    return { notFound: true };
-  }
-
-  return { props: { post } };
-}) satisfies GetStaticProps<{ post: Post }>;

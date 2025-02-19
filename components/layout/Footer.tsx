@@ -1,4 +1,4 @@
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="p-4 bg-gray-800 text-white text-center fixed bottom-0 w-full">
       <div className="flex justify-between items-center space-x-4 mx-2">

@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import DarkModeToggle from "@/components/DarkModeToggle";
 
 export default function Document() {
   return (
@@ -11,7 +10,7 @@ export default function Document() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <body className="antialiased">
+      <body className="antialiased bg-[rgb(var(--background))] text-[rgb(var(--foreground))] font-sans">
         <Main />
         <NextScript />
       </body>

@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react"
 
-export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false) // Default to false
+export function DarkModeToggle() {
+  const [darkMode, setDarkMode] = useState(false) 
 
+  
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme")
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -18,6 +19,7 @@ export default function DarkModeToggle() {
     }
   }, [])
 
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark")
@@ -28,9 +30,11 @@ export default function DarkModeToggle() {
     }
   }, [darkMode])
 
+
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev)
   }
+
 
   return (
     <button

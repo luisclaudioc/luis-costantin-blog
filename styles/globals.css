@@ -11,10 +11,3 @@
   --background: 26 26 26;
   --foreground: 249 250 251;
 }
-
-@layer base {
-  body {
-    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
-    font-family: Arial, Helvetica, sans-serif;
-  }
-}

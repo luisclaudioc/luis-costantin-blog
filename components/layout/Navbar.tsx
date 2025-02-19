@@ -1,18 +1,17 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import SearchBar from "./SearchBar";
-import DarkModeToggle from "./DarkModeToggle";
+import { SearchBar } from "./SearchBar";
+import { DarkModeToggle } from "./DarkModeToggle";
 
-interface NavbarProps {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-}
 
-export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
+export function Navbar() {
   const router = useRouter();
+  
   const isActive = (path: string) =>
     router.pathname === path ? "text-blue-500" : "text-white";
+    
+  const userIsInHomePage = router.pathname === "/";
 
   return (
     <nav className="sticky top-0 left-0 w-full py-3 px-5 bg-gray-800 text-white flex items-center z-50">
@@ -26,10 +25,10 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
       </div>
 
       <div className="ml-auto flex items-center space-x-4">
-        {router.pathname === "/" && (
-          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        {userIsInHomePage && (
+          <SearchBar /> 
         )}
-
+        
         <DarkModeToggle />
       </div>
     </nav>
