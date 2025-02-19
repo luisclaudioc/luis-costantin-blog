@@ -13,7 +13,7 @@ export default function PostCard({ post, onTagClick }: { post: Post; onTagClick:
   const hashtags = hashtagGenerator(post.title);
   
   return (
-    <div className="p-4 border rounded-[12px] shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
+    <div className="p-4 border dark:border-0 rounded shadow-lg hover:-translate-y-1 hover:transition-all hover:duration-300 flex flex-col bg-gradient-to-r from-blue-500/5 to-purple-500/5 dark:from-blue-500/10 dark:to-purple-300/10">
       <h2 className="text-xl font-bold mb-2">
         <Link 
           href={`/post/${post.id}`} 
