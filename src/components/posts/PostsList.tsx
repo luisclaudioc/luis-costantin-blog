@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { hashtagGenerator } from "@/utils/hashtagGenerator";
 import { PostCard } from "./PostCard";
 import { useSearch } from "@/context/SearchContext"; 
-import { PostsProps } from "@/types/Post.types";
+import type { PostsProps } from "@/types/Post.types";
 import { useRouter } from "next/router";
 
 export function PostsList({ posts }: PostsProps) {

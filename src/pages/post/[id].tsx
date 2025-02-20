@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { capitalizeTitle } from "@/utils/capitalizeTitle";
-import { Post, PostProps } from "@/types/Post.types";
+import type { Post, PostProps } from "@/types/Post.types";
 
 
 // Get static paths

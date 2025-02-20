@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { capitalizeTitle } from "@/utils/capitalizeTitle";
 import { HashtagsList } from "./HashtagsList"; 
-import { Post } from "@/types/Post.types";
+import type { Post } from "@/types/Post.types";
 
 
 export function PostCard({ post, onTagClick }: { post: Post; onTagClick: (tag: string) => void; }) {

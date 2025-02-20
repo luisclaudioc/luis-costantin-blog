@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { PostsList } from "@/components/posts/PostsList";
-import { Post, PostsProps } from "@/types/Post.types";
+import type { Post, PostsProps } from "@/types/Post.types";
 
 
 // Get static props
