@@ -20,7 +20,7 @@ This is a **Next.js** blog application built as a test project. It fetches blog 
    ```  
 4. Open your browser and go to:  
    - 📍 **Localhost:** `http://localhost:3000`  
-   - 📍 **Deployed on Vercel:** [Your Vercel Link]  
+   - 📍 **Deployed on Vercel:** [Vercel Link](https://luis-costantin-blog.vercel.app).
 
 ---
 
@@ -53,23 +53,26 @@ This is a **Next.js** blog application built as a test project. It fetches blog 
 ## 📂 Project Structure  
 ```
 /blog-app
- ├── /components        # Reusable UI components (Navbar, Footer, PostCard, SearchBar, etc.)
- ├── /pages             # Next.js pages (index.tsx, about.tsx, post/[id].tsx)
- ├── /styles           # Global CSS and Tailwind configurations
- ├── /utils            # Utility functions (Hashtag Generator)
- ├── /public           # Static assets
- ├── next.config.js    # Next.js configuration
+ ├── /src               # Source code folder
+ │   ├── /components    # Reusable UI components (Navbar, Footer, PostCard, SearchBar, etc.)
+ │   ├── /context       # React Context (SearchContext, etc.)
+ │   ├── /pages         # Next.js pages (index.tsx, about.tsx, post/[id].tsx)
+ │   ├── /styles        # Global CSS and Tailwind configurations
+ │   ├── /utils         # Utility functions (Hashtag Generator, Capitalize Title)
+ │   ├── /types         # TypeScript types (Post.types.ts, Navbar.types.ts, Search.types.ts.)
+ ├── /public            # Static assets
+ ├── next.config.js     # Next.js configuration
  ├── tailwind.config.js # Tailwind configuration
- ├── tsconfig.json     # TypeScript configuration
- ├── README.md         # Project documentation
- └── package.json      # Project dependencies
+ ├── tsconfig.json      # TypeScript configuration
+ ├── README.md          # Project documentation
+ └── package.json       # Project dependencies
 ```
 
 ---
 
 ## 📌 Deployment  
 This project is **deployed on Vercel**.  
-You can access the live version at: [Your Vercel Deployment Link]  
+You can access the live version at: [Vercel Link](https://luis-costantin-blog.vercel.app).
 
 ---
 
