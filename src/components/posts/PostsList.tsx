@@ -27,10 +27,10 @@ export function PostsList({ posts }: PostsProps) {
             }
         };
 
-        router.events.on("beforeHistoryChange", handleRouteChange);
+        router.events.on("routeChangeComplete", handleRouteChange);
 
         return () => {
-            router.events.off("beforeHistoryChange", handleRouteChange);
+            router.events.off("routeChangeComplete", handleRouteChange);
         };
     }, [router, setSearchQuery]);
     
