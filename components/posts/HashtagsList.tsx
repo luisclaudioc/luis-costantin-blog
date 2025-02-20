@@ -1,6 +1,7 @@
 import { hashtagGenerator } from "@/utils/hashtagGenerator"; 
 import { HashtagsListProps } from "@/types/Search.types";
 
+
 export function HashtagsList({ postTitle, onTagClick }: HashtagsListProps) {
 
     const hashtags = hashtagGenerator(postTitle);

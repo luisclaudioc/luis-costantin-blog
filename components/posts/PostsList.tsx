@@ -9,7 +9,7 @@ export function PostsList({ posts }: PostsProps) {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const { searchQuery, setSearchQuery } = useSearch();
     const router = useRouter(); 
-    const userIsFiltering = selectedTag || searchQuery;
+    const isUserFiltering = selectedTag || searchQuery;
 
     // Clear tag search if search bar is used
     useEffect(() => {
@@ -49,7 +49,7 @@ export function PostsList({ posts }: PostsProps) {
 
     return (
         <>
-            { userIsFiltering && (
+            {isUserFiltering && (
                 <div className="mb-4 text-center">
                 <p>
                     Filtering by: <span className="font-bold">{selectedTag || `"${searchQuery}"`}</span>
@@ -75,4 +75,4 @@ export function PostsList({ posts }: PostsProps) {
             </div>
         </>
     );
-    }
+}

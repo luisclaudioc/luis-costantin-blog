@@ -11,7 +11,7 @@ export function Navbar() {
   const isActive = (path: string) =>
     router.pathname === path ? "text-blue-500" : "text-white";
     
-  const userIsInHomePage = router.pathname === "/";
+  const isUserInHomePage = router.pathname === "/";
 
   return (
     <nav className="sticky top-0 left-0 w-full py-3 px-5 bg-gray-800 text-white flex items-center z-50">
@@ -25,7 +25,7 @@ export function Navbar() {
       </div>
 
       <div className="ml-auto flex items-center space-x-4">
-        {userIsInHomePage && (
+        {isUserInHomePage && (
           <SearchBar /> 
         )}
         

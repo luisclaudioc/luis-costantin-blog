@@ -2,6 +2,7 @@
 
 import { useSearch } from "@/context/SearchContext"; 
 
+
 export function SearchBar() {
   const { searchQuery, setSearchQuery } = useSearch(); 
 

@@ -18,7 +18,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths<{ id: string }>;
 
 
-// Get static rops
+// Get static props
 export const getStaticProps = (async ({ params }) => {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params?.id}`
